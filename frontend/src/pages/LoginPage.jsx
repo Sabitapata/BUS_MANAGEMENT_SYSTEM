@@ -24,7 +24,13 @@ export default function LoginPage() {
       await login(email, password);
       navigate(from, { replace: true });
     } catch (err) {
-      setError(err.response?.data?.message || 'Invalid email or password');
+      if (!err.response || err.code === 'ERR_NETWORK') {
+        setError('Cannot connect to backend server! Please ensure Spring Boot is running on port 8080.');
+      } else if (err.response.status === 401 || err.response.status === 403) {
+        setError('Invalid email or password. Please check your credentials.');
+      } else {
+        setError(err.response?.data?.message || 'Authentication error. Please try again.');
+      }
     } finally {
       setLoading(false);
     }

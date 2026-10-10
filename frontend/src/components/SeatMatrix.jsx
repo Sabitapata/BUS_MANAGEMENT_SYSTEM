@@ -31,8 +31,8 @@ export default function SeatMatrix({ tripId, baseFare, selectedSeats, onToggleSe
   if (loading) {
     return (
       <div className="py-12 flex flex-col items-center justify-center gap-2">
-        <div className="w-8 h-8 border-4 border-sky-600 border-t-transparent rounded-full animate-spin"></div>
-        <p className="text-xs text-slate-500">Loading seat layout...</p>
+        <div className="w-8 h-8 border-4 border-[#0B2545] border-t-transparent rounded-full animate-spin"></div>
+        <p className="text-xs text-slate-500 font-serif">Loading bus deck layout...</p>
       </div>
     );
   }
@@ -59,8 +59,8 @@ export default function SeatMatrix({ tripId, baseFare, selectedSeats, onToggleSe
     <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 pb-4 border-b border-slate-100">
         <div>
-          <h3 className="text-base font-bold text-slate-900">Select Your Seats</h3>
-          <p className="text-xs text-slate-500">Click on available seats to reserve</p>
+          <h3 className="text-lg font-bold text-[#0B2545]">Select Your Preferred Seats</h3>
+          <p className="text-xs text-slate-500">Real-time seat matrix with instant reservation locking</p>
         </div>
 
         {/* Deck Switcher */}
@@ -68,16 +68,16 @@ export default function SeatMatrix({ tripId, baseFare, selectedSeats, onToggleSe
           <div className="flex bg-slate-100 p-1 rounded-xl">
             <button
               onClick={() => setActiveDeck('LOWER')}
-              className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all ${
-                activeDeck === 'LOWER' ? 'bg-white text-sky-700 shadow-sm' : 'text-slate-600 hover:text-slate-900'
+              className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
+                activeDeck === 'LOWER' ? 'bg-[#0B2545] text-amber-300 shadow-sm' : 'text-slate-600 hover:text-[#0B2545]'
               }`}
             >
               Lower Deck
             </button>
             <button
               onClick={() => setActiveDeck('UPPER')}
-              className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all ${
-                activeDeck === 'UPPER' ? 'bg-white text-sky-700 shadow-sm' : 'text-slate-600 hover:text-slate-900'
+              className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
+                activeDeck === 'UPPER' ? 'bg-[#0B2545] text-amber-300 shadow-sm' : 'text-slate-600 hover:text-[#0B2545]'
               }`}
             >
               Upper Deck
@@ -90,12 +90,12 @@ export default function SeatMatrix({ tripId, baseFare, selectedSeats, onToggleSe
       <div className="relative max-w-sm mx-auto bg-slate-50 border-2 border-slate-300 rounded-3xl p-6 shadow-inner">
         {/* Front of bus / Steering Indicator */}
         <div className="flex justify-between items-center mb-6 pb-3 border-b border-dashed border-slate-300">
-          <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-            {activeDeck} DECK
+          <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
+            {activeDeck} DECK CABIN
           </div>
-          <div className="flex items-center gap-1.5 text-slate-500 text-xs font-medium">
-            <span className="text-[10px] font-semibold uppercase text-slate-400">Driver</span>
-            <div className="w-8 h-8 rounded-full bg-slate-200 border border-slate-300 flex items-center justify-center text-slate-700">
+          <div className="flex items-center gap-1.5 text-slate-600 text-xs font-medium">
+            <span className="text-[10px] font-bold uppercase text-slate-400">Driver</span>
+            <div className="w-8 h-8 rounded-full bg-slate-200 border border-slate-300 flex items-center justify-center text-[#0B2545]">
               <Compass className="w-4 h-4 animate-spin-slow" />
             </div>
           </div>
@@ -125,8 +125,8 @@ export default function SeatMatrix({ tripId, baseFare, selectedSeats, onToggleSe
                           isBooked
                             ? 'bg-slate-200 text-slate-400 border border-slate-300 cursor-not-allowed line-through'
                             : isSelected
-                            ? 'bg-sky-600 text-white border-2 border-sky-700 shadow-md shadow-sky-600/30 scale-105'
-                            : 'bg-white text-slate-700 border-2 border-emerald-400 hover:border-emerald-600 hover:bg-emerald-50'
+                            ? 'bg-[#0B2545] text-amber-300 border-2 border-amber-500 shadow-md shadow-navy-900/30 scale-105'
+                            : 'bg-white text-slate-800 border-2 border-emerald-500 hover:border-emerald-600 hover:bg-emerald-50'
                         }`}
                       >
                         <Armchair className="w-4 h-4 mb-0.5" />
@@ -157,8 +157,8 @@ export default function SeatMatrix({ tripId, baseFare, selectedSeats, onToggleSe
                           isBooked
                             ? 'bg-slate-200 text-slate-400 border border-slate-300 cursor-not-allowed line-through'
                             : isSelected
-                            ? 'bg-sky-600 text-white border-2 border-sky-700 shadow-md shadow-sky-600/30 scale-105'
-                            : 'bg-white text-slate-700 border-2 border-emerald-400 hover:border-emerald-600 hover:bg-emerald-50'
+                            ? 'bg-[#0B2545] text-amber-300 border-2 border-amber-500 shadow-md shadow-navy-900/30 scale-105'
+                            : 'bg-white text-slate-800 border-2 border-emerald-500 hover:border-emerald-600 hover:bg-emerald-50'
                         }`}
                       >
                         <Armchair className="w-4 h-4 mb-0.5" />
@@ -176,16 +176,16 @@ export default function SeatMatrix({ tripId, baseFare, selectedSeats, onToggleSe
       {/* Legend */}
       <div className="mt-6 pt-4 border-t border-slate-100 flex flex-wrap justify-center items-center gap-6 text-xs text-slate-600">
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 rounded border-2 border-emerald-400 bg-white"></div>
-          <span>Available</span>
+          <div className="w-4 h-4 rounded border-2 border-emerald-500 bg-white"></div>
+          <span className="font-semibold text-slate-700">Available</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 rounded bg-sky-600 text-white flex items-center justify-center text-[10px]">✓</div>
-          <span className="font-semibold text-sky-700">Selected</span>
+          <div className="w-4 h-4 rounded bg-[#0B2545] text-amber-300 border border-amber-500 flex items-center justify-center text-[10px] font-bold">✓</div>
+          <span className="font-bold text-[#0B2545]">Selected</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-4 h-4 rounded bg-slate-200 border border-slate-300"></div>
-          <span>Booked</span>
+          <span>Reserved</span>
         </div>
       </div>
     </div>

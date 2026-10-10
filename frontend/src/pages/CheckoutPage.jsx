@@ -112,15 +112,15 @@ export default function CheckoutPage() {
             {/* Passenger Details Card */}
             <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-5">
               <div className="flex items-center gap-2 pb-3 border-b border-slate-100">
-                <User className="w-5 h-5 text-sky-600" />
-                <h3 className="font-bold text-base text-slate-900">Passenger Information</h3>
+                <User className="w-5 h-5 text-[#0B2545]" />
+                <h3 className="font-bold text-lg text-[#0B2545]">Passenger Information</h3>
               </div>
 
               {passengers.map((p, idx) => (
-                <div key={p.seatId} className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
+                <div key={p.seatId} className="p-4 rounded-xl bg-slate-50/80 border border-slate-200 space-y-3">
                   <div className="flex justify-between items-center text-xs">
-                    <span className="font-bold text-slate-700">Passenger {idx + 1}</span>
-                    <span className="px-2 py-0.5 bg-sky-100 text-sky-800 rounded font-bold">
+                    <span className="font-bold text-[#0B2545]">Passenger {idx + 1}</span>
+                    <span className="px-2.5 py-0.5 bg-amber-100 text-amber-900 rounded-lg font-bold border border-amber-300">
                       Seat {p.seatNumber} ({p.deck})
                     </span>
                   </div>
@@ -134,7 +134,7 @@ export default function CheckoutPage() {
                         value={p.passengerName}
                         onChange={(e) => handlePassengerChange(idx, 'passengerName', e.target.value)}
                         placeholder="e.g. Aditi Rao"
-                        className="w-full text-xs bg-white border border-slate-200 rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-sky-500"
+                        className="w-full text-xs font-semibold bg-white border border-slate-300 rounded-lg p-2.5 text-[#0B2545] focus:outline-none focus:ring-2 focus:ring-[#0B2545]"
                       />
                     </div>
 
@@ -147,7 +147,7 @@ export default function CheckoutPage() {
                         required
                         value={p.passengerAge}
                         onChange={(e) => handlePassengerChange(idx, 'passengerAge', e.target.value)}
-                        className="w-full text-xs bg-white border border-slate-200 rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-sky-500"
+                        className="w-full text-xs font-semibold bg-white border border-slate-300 rounded-lg p-2.5 text-[#0B2545] focus:outline-none focus:ring-2 focus:ring-[#0B2545]"
                       />
                     </div>
 
@@ -156,7 +156,7 @@ export default function CheckoutPage() {
                       <select
                         value={p.passengerGender}
                         onChange={(e) => handlePassengerChange(idx, 'passengerGender', e.target.value)}
-                        className="w-full text-xs bg-white border border-slate-200 rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-sky-500"
+                        className="w-full text-xs font-semibold bg-white border border-slate-300 rounded-lg p-2.5 text-[#0B2545] focus:outline-none focus:ring-2 focus:ring-[#0B2545]"
                       >
                         <option value="MALE">Male</option>
                         <option value="FEMALE">Female</option>
@@ -171,8 +171,8 @@ export default function CheckoutPage() {
             {/* Payment Method Selector */}
             <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
               <div className="flex items-center gap-2 pb-3 border-b border-slate-100">
-                <CreditCard className="w-5 h-5 text-indigo-600" />
-                <h3 className="font-bold text-base text-slate-900">Payment Simulation</h3>
+                <CreditCard className="w-5 h-5 text-amber-700" />
+                <h3 className="font-bold text-lg text-[#0B2545]">Payment Method Simulation</h3>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -182,18 +182,19 @@ export default function CheckoutPage() {
                   { id: 'NETBANKING', label: 'Net Banking', icon: ShieldCheck },
                 ].map((m) => {
                   const Icon = m.icon;
+                  const isSelected = paymentMethod === m.id;
                   return (
                     <button
                       type="button"
                       key={m.id}
                       onClick={() => setPaymentMethod(m.id)}
                       className={`p-4 rounded-xl border text-left flex flex-col items-start gap-2 transition-all ${
-                        paymentMethod === m.id
-                          ? 'border-sky-600 bg-sky-50/50 text-sky-900 ring-2 ring-sky-500/20'
+                        isSelected
+                          ? 'border-amber-500 bg-amber-50/70 text-amber-900 ring-2 ring-amber-400/30'
                           : 'border-slate-200 hover:border-slate-300 text-slate-700'
                       }`}
                     >
-                      <Icon className="w-5 h-5 text-sky-600" />
+                      <Icon className={`w-5 h-5 ${isSelected ? 'text-amber-700' : 'text-slate-400'}`} />
                       <span className="text-xs font-bold">{m.label}</span>
                     </button>
                   );
@@ -201,8 +202,8 @@ export default function CheckoutPage() {
               </div>
 
               <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-600">
-                <span className="font-semibold text-slate-800">Demo Checkout: </span>
-                Instant payment simulation enabled. No real money is charged.
+                <span className="font-bold text-[#0B2545]">Sandbox Simulator: </span>
+                Real-time transaction authorization via mock payment gateway. Instant PNR issuance upon confirmation.
               </div>
             </div>
 
@@ -210,14 +211,14 @@ export default function CheckoutPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-4 bg-gradient-to-r from-sky-600 via-indigo-600 to-sky-700 hover:from-sky-700 hover:to-indigo-700 disabled:opacity-50 text-white font-extrabold rounded-2xl shadow-lg shadow-sky-600/30 flex items-center justify-center gap-2 text-sm transition-all"
+              className="w-full py-4 bg-gradient-to-r from-[#0B2545] via-[#134074] to-[#B45309] hover:from-[#07182C] hover:to-[#92400E] disabled:opacity-50 text-amber-300 font-bold rounded-2xl shadow-lg shadow-navy-900/30 flex items-center justify-center gap-2 text-base transition-all border border-amber-400/30"
             >
               {loading ? (
-                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                <div className="w-5 h-5 border-2 border-amber-300 border-t-transparent rounded-full animate-spin"></div>
               ) : (
                 <>
-                  <CheckCircle2 className="w-5 h-5" />
-                  Pay ₹{calculateTotal()} & Reserve Ticket
+                  <CheckCircle2 className="w-5 h-5 text-amber-300" />
+                  Pay ₹{calculateTotal()} & Reserve Verified Ticket
                 </>
               )}
             </button>
@@ -227,16 +228,18 @@ export default function CheckoutPage() {
         {/* Fare & Journey Summary */}
         <div className="lg:col-span-1 space-y-6">
           <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4 sticky top-24">
-            <h4 className="font-bold text-sm text-slate-900 pb-3 border-b border-slate-100">
+            <h4 className="font-bold text-base text-[#0B2545] pb-3 border-b border-slate-100">
               Trip Details
             </h4>
 
             <div>
-              <span className="text-[10px] font-bold uppercase text-sky-700 bg-sky-50 px-2 py-0.5 rounded">
+              <span className="text-[10px] font-bold uppercase text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded border border-amber-200">
                 {trip.operatorName}
               </span>
-              <div className="text-base font-extrabold text-slate-900 mt-2">
-                {trip.sourceCity} ➔ {trip.destinationCity}
+              <div className="text-lg font-bold text-[#0B2545] mt-2 flex items-center gap-1.5">
+                <span>{trip.sourceCity}</span>
+                <span className="text-amber-600 font-normal">➔</span>
+                <span>{trip.destinationCity}</span>
               </div>
               <p className="text-xs text-slate-500 font-mono mt-0.5">{trip.busNumber}</p>
             </div>
@@ -244,13 +247,13 @@ export default function CheckoutPage() {
             <div className="pt-3 border-t border-slate-100 space-y-2 text-xs">
               <div className="flex justify-between text-slate-600">
                 <span>Departure:</span>
-                <span className="font-semibold text-slate-800">
+                <span className="font-bold text-[#0B2545]">
                   {new Date(trip.departureTime).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })}
                 </span>
               </div>
               <div className="flex justify-between text-slate-600">
                 <span>Seats ({selectedSeats.length}):</span>
-                <span className="font-bold text-sky-700">
+                <span className="font-bold text-amber-800">
                   {selectedSeats.map((s) => s.seatNumber).join(', ')}
                 </span>
               </div>
@@ -259,15 +262,15 @@ export default function CheckoutPage() {
             <div className="pt-3 border-t border-slate-100 space-y-2 text-xs">
               <div className="flex justify-between text-slate-600">
                 <span>Base Fare:</span>
-                <span>₹{(selectedSeats.length * Number(trip.baseFare)).toFixed(2)}</span>
+                <span className="font-semibold">₹{(selectedSeats.length * Number(trip.baseFare)).toFixed(2)}</span>
               </div>
               <div className="flex justify-between text-slate-600">
                 <span>GST (5%):</span>
-                <span>₹{(selectedSeats.length * Number(trip.baseFare) * 0.05).toFixed(2)}</span>
+                <span className="font-semibold">₹{(selectedSeats.length * Number(trip.baseFare) * 0.05).toFixed(2)}</span>
               </div>
-              <div className="flex justify-between font-black text-base text-slate-900 pt-2 border-t border-slate-100">
+              <div className="flex justify-between font-bold text-lg text-[#0B2545] pt-2 border-t border-slate-100">
                 <span>Total Fare:</span>
-                <span className="text-sky-700">₹{calculateTotal()}</span>
+                <span className="text-[#0B2545]">₹{calculateTotal()}</span>
               </div>
             </div>
 

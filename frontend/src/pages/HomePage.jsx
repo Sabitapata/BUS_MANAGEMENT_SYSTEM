@@ -45,38 +45,38 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-sky-900 via-indigo-950 to-slate-900 text-white pt-16 pb-28">
-        {/* Decorative Grid BG */}
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#07182C] via-[#0B2545] to-[#133E68] text-white pt-16 pb-28">
+        {/* Decorative Highway Grid / Starlight */}
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:20px_20px]"></div>
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-400/20 text-sky-300 text-xs font-semibold mb-6">
-            <Sparkles className="w-3.5 h-3.5" /> India's Smartest Bus Reservation Network
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-bold mb-6 tracking-wide">
+            <Sparkles className="w-3.5 h-3.5 text-amber-400" /> India's Premier Bus Fleet & Reservation Network
           </div>
-          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight max-w-3xl mx-auto leading-tight">
+          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight max-w-3xl mx-auto leading-tight drop-shadow-sm">
             Seamless Intercity Travel at Your Fingertips
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">
-            Book premium AC, Sleeper, and Luxury Volvo buses across major corridors with real-time seat lock and instant e-tickets.
+          <p className="mt-4 text-base sm:text-lg text-slate-200 max-w-2xl mx-auto leading-relaxed">
+            Book premium AC, Sleeper, and Luxury Volvo buses across major corridors with real-time seat lock and instant verified e-tickets.
           </p>
 
           {/* Search Box Card */}
-          <div className="mt-10 max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl p-4 sm:p-6 text-slate-800 border border-slate-100">
+          <div className="mt-10 max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl p-4 sm:p-6 text-slate-800 border-2 border-slate-200/90">
             <form onSubmit={handleSearch} className="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
               {/* Origin */}
               <div className="md:col-span-4 text-left">
-                <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">
+                <label className="block text-xs font-bold text-[#0B2545] uppercase tracking-wider mb-1">
                   From (Origin)
                 </label>
                 <div className="relative">
-                  <MapPin className="w-5 h-5 absolute left-3.5 top-3.5 text-sky-600" />
+                  <MapPin className="w-5 h-5 absolute left-3.5 top-3.5 text-[#0B2545]" />
                   <input
                     type="text"
                     required
                     value={source}
                     onChange={(e) => setSource(e.target.value)}
                     placeholder="e.g. Mumbai"
-                    className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500"
+                    className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl font-bold text-[#0B2545] focus:outline-none focus:ring-2 focus:ring-[#0B2545]"
                   />
                 </div>
               </div>
@@ -86,7 +86,7 @@ export default function HomePage() {
                 <button
                   type="button"
                   onClick={handleSwap}
-                  className="w-10 h-10 rounded-full bg-slate-100 hover:bg-sky-50 text-slate-600 hover:text-sky-600 border border-slate-200 flex items-center justify-center transition-transform hover:rotate-180"
+                  className="w-10 h-10 rounded-full bg-slate-100 hover:bg-amber-50 text-slate-600 hover:text-amber-800 border border-slate-300 flex items-center justify-center transition-transform hover:rotate-180"
                   title="Swap Origin and Destination"
                 >
                   <ArrowRightLeft className="w-4 h-4" />
@@ -95,35 +95,35 @@ export default function HomePage() {
 
               {/* Destination */}
               <div className="md:col-span-4 text-left">
-                <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">
+                <label className="block text-xs font-bold text-[#0B2545] uppercase tracking-wider mb-1">
                   To (Destination)
                 </label>
                 <div className="relative">
-                  <MapPin className="w-5 h-5 absolute left-3.5 top-3.5 text-indigo-600" />
+                  <MapPin className="w-5 h-5 absolute left-3.5 top-3.5 text-amber-700" />
                   <input
                     type="text"
                     required
                     value={destination}
                     onChange={(e) => setDestination(e.target.value)}
                     placeholder="e.g. Pune"
-                    className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500"
+                    className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl font-bold text-[#0B2545] focus:outline-none focus:ring-2 focus:ring-[#0B2545]"
                   />
                 </div>
               </div>
 
               {/* Date */}
               <div className="md:col-span-3 text-left">
-                <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">
+                <label className="block text-xs font-bold text-[#0B2545] uppercase tracking-wider mb-1">
                   Date of Journey
                 </label>
                 <div className="relative">
-                  <Calendar className="w-5 h-5 absolute left-3.5 top-3.5 text-slate-400" />
+                  <Calendar className="w-5 h-5 absolute left-3.5 top-3.5 text-slate-500" />
                   <input
                     type="date"
                     required
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
-                    className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500"
+                    className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl font-bold text-[#0B2545] focus:outline-none focus:ring-2 focus:ring-[#0B2545]"
                   />
                 </div>
               </div>
@@ -132,10 +132,10 @@ export default function HomePage() {
               <div className="md:col-span-12 mt-2">
                 <button
                   type="submit"
-                  className="w-full py-4 bg-gradient-to-r from-sky-600 via-indigo-600 to-sky-700 hover:from-sky-700 hover:to-indigo-700 text-white font-bold rounded-2xl shadow-lg shadow-sky-600/30 flex items-center justify-center gap-2 text-base transition-all transform hover:-translate-y-0.5"
+                  className="w-full py-4 bg-gradient-to-r from-[#0B2545] via-[#133E68] to-[#B45309] hover:from-[#07182C] hover:to-[#92400E] text-amber-300 font-bold rounded-2xl shadow-lg shadow-navy-900/30 flex items-center justify-center gap-2 text-base transition-all transform hover:-translate-y-0.5 border border-amber-400/30"
                 >
-                  <Search className="w-5 h-5" />
-                  Search Buses
+                  <Search className="w-5 h-5 text-amber-300" />
+                  Search Buses & Check Fares
                 </button>
               </div>
             </form>
@@ -145,13 +145,13 @@ export default function HomePage() {
 
       {/* Popular Routes Section */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-10">
-        <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-200/80">
-          <div className="flex items-center justify-between mb-6">
+        <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-200">
+          <div className="flex items-center justify-between mb-6 pb-2 border-b border-slate-100">
             <div>
-              <h2 className="text-lg font-bold text-slate-900">Trending Express Routes</h2>
+              <h2 className="text-xl font-bold text-[#0B2545]">Trending Express Routes</h2>
               <p className="text-xs text-slate-500">Popular bus routes with daily guaranteed departures</p>
             </div>
-            <span className="text-xs font-bold text-sky-600 bg-sky-50 px-2.5 py-1 rounded-full border border-sky-100">
+            <span className="text-xs font-bold text-amber-800 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
               Live Fares
             </span>
           </div>
@@ -165,18 +165,18 @@ export default function HomePage() {
                   setDestination(r.to);
                   navigate(`/trips?source=${encodeURIComponent(r.from)}&destination=${encodeURIComponent(r.to)}&date=${date}`);
                 }}
-                className="group p-4 rounded-2xl bg-slate-50 hover:bg-sky-50/60 border border-slate-200 hover:border-sky-300 transition-all cursor-pointer shadow-sm hover:shadow"
+                className="group p-4 rounded-2xl bg-slate-50/80 hover:bg-amber-50/50 border border-slate-200 hover:border-amber-400 transition-all cursor-pointer shadow-sm hover:shadow"
               >
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-xs font-semibold text-slate-400">{r.time}</span>
-                  <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md">
+                  <span className="text-xs font-semibold text-slate-500">{r.time}</span>
+                  <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
                     from {r.price}
                   </span>
                 </div>
-                <div className="text-sm font-bold text-slate-900 group-hover:text-sky-700 transition-colors">
+                <div className="text-base font-bold text-[#0B2545] group-hover:text-amber-800 transition-colors">
                   {r.from} ➔ {r.to}
                 </div>
-                <div className="text-[11px] text-slate-500 mt-1 flex items-center gap-1">
+                <div className="text-[11px] text-slate-500 mt-1 flex items-center gap-1 group-hover:text-amber-700">
                   Click to check buses ➔
                 </div>
               </div>
@@ -188,40 +188,40 @@ export default function HomePage() {
       {/* Feature Highlights */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#0B2545]">
             Why Travelers Choose TravelSwift
           </h2>
           <p className="mt-2 text-sm text-slate-600">
-            Engineered with modern full-stack Java architecture for high reliability and zero booking conflicts.
+            Engineered with modern full-stack Java architecture for high reliability, zero booking conflicts, and instant ticketing.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center mb-4">
-              <ShieldCheck className="w-6 h-6" />
+            <div className="w-12 h-12 rounded-2xl bg-navy-50 text-[#0B2545] flex items-center justify-center mb-4 border border-navy-200">
+              <ShieldCheck className="w-6 h-6 text-[#0B2545]" />
             </div>
-            <h3 className="text-base font-bold text-slate-900 mb-2">ACID Double-Booking Protection</h3>
+            <h3 className="text-lg font-bold text-[#0B2545] mb-2">ACID Double-Booking Protection</h3>
             <p className="text-xs text-slate-600 leading-relaxed">
               Equipped with database transactions and pessimistic seat locking to mathematically ensure no two passengers are ever assigned the same seat.
             </p>
           </div>
 
           <div className="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-4">
-              <Clock className="w-6 h-6" />
+            <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center mb-4 border border-amber-200">
+              <Clock className="w-6 h-6 text-amber-700" />
             </div>
-            <h3 className="text-base font-bold text-slate-900 mb-2">Real-Time Seat Matrices</h3>
+            <h3 className="text-lg font-bold text-[#0B2545] mb-2">Real-Time Seat Matrices</h3>
             <p className="text-xs text-slate-600 leading-relaxed">
-              Interactive 2D Lower and Upper deck visual layouts showing real-time booked, available, and women-reserved seats.
+              Interactive 2D Lower and Upper deck visual layouts showing real-time booked, available, and premium window seats.
             </p>
           </div>
 
           <div className="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4">
-              <Award className="w-6 h-6" />
+            <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-4 border border-emerald-200">
+              <Award className="w-6 h-6 text-emerald-700" />
             </div>
-            <h3 className="text-base font-bold text-slate-900 mb-2">Instant PNR & PDF E-Tickets</h3>
+            <h3 className="text-lg font-bold text-[#0B2545] mb-2">Instant PNR & PDF E-Tickets</h3>
             <p className="text-xs text-slate-600 leading-relaxed">
               Automatic alphanumeric PNR code assignment with one-click printable vouchers, boarding gate manifests, and automated refunds.
             </p>

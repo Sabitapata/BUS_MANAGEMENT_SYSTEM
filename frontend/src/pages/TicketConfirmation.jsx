@@ -67,16 +67,16 @@ export default function TicketConfirmation() {
       {/* Printable E-Ticket Card */}
       <div className="bg-white rounded-3xl border-2 border-slate-300 shadow-xl overflow-hidden print:border-none print:shadow-none">
         {/* Ticket Header */}
-        <div className="bg-gradient-to-r from-sky-800 to-indigo-900 text-white p-6 sm:p-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div className="bg-gradient-to-r from-[#07182C] via-[#0B2545] to-[#134074] text-white p-6 sm:p-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div>
-            <span className="text-[10px] font-bold uppercase tracking-widest text-sky-300">Official Boarding Pass</span>
-            <div className="text-2xl font-black mt-1">{booking.operatorName}</div>
+            <span className="text-[10px] font-bold uppercase tracking-widest text-amber-400">Official Boarding Pass</span>
+            <div className="text-2xl font-bold mt-1 text-white">{booking.operatorName}</div>
             <p className="text-xs text-slate-300 font-mono">{booking.busNumber} • {booking.busType.replace('_', ' ')}</p>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-2xl border border-white/20 text-right">
-            <span className="text-[10px] font-semibold text-slate-300 uppercase">PNR Number</span>
-            <div className="text-xl font-black font-mono tracking-wider text-amber-300">{booking.pnrNumber}</div>
+          <div className="bg-black/30 backdrop-blur-md px-4 py-2 rounded-2xl border border-amber-400/40 text-right shadow-inner">
+            <span className="text-[10px] font-bold text-amber-300 uppercase tracking-wider">PNR Number</span>
+            <div className="text-xl font-bold font-mono tracking-wider text-amber-300">{booking.pnrNumber}</div>
           </div>
         </div>
 
@@ -85,30 +85,30 @@ export default function TicketConfirmation() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center sm:text-left items-center">
             <div>
               <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Departure</span>
-              <div className="text-xl font-extrabold text-slate-900 mt-1">{booking.sourceCity}</div>
-              <p className="text-xs font-semibold text-sky-700">
+              <div className="text-2xl font-bold text-[#0B2545] mt-1">{booking.sourceCity}</div>
+              <p className="text-xs font-bold text-amber-800">
                 {new Date(booking.departureTime).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })}
               </p>
-              <p className="text-[11px] text-slate-500">
+              <p className="text-[11px] text-slate-500 font-medium">
                 {new Date(booking.departureTime).toLocaleDateString('en-IN', { month: 'short', day: 'numeric', year: 'numeric' })}
               </p>
             </div>
 
             <div className="flex flex-col items-center">
-              <Bus className="w-6 h-6 text-sky-600 mb-1" />
+              <Bus className="w-6 h-6 text-[#0B2545] mb-1" />
               <div className="w-full h-0.5 bg-slate-300 relative">
-                <div className="w-2.5 h-2.5 rounded-full bg-sky-600 absolute -top-1 right-1/2 translate-x-1/2"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-amber-600 absolute -top-1 right-1/2 translate-x-1/2"></div>
               </div>
               <span className="text-[10px] text-slate-400 mt-1 font-semibold">Direct Route</span>
             </div>
 
             <div className="sm:text-right">
               <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Destination</span>
-              <div className="text-xl font-extrabold text-slate-900 mt-1">{booking.destinationCity}</div>
-              <p className="text-xs font-semibold text-indigo-700">
+              <div className="text-2xl font-bold text-[#0B2545] mt-1">{booking.destinationCity}</div>
+              <p className="text-xs font-bold text-amber-800">
                 {new Date(booking.arrivalTime).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })}
               </p>
-              <p className="text-[11px] text-slate-500">
+              <p className="text-[11px] text-slate-500 font-medium">
                 {new Date(booking.arrivalTime).toLocaleDateString('en-IN', { month: 'short', day: 'numeric', year: 'numeric' })}
               </p>
             </div>
@@ -136,10 +136,10 @@ export default function TicketConfirmation() {
                 {booking.items.map((item, idx) => (
                   <tr key={item.itemId}>
                     <td className="py-2.5 text-slate-400">{idx + 1}</td>
-                    <td className="py-2.5 font-bold text-slate-900">{item.passengerName}</td>
+                    <td className="py-2.5 font-bold text-[#0B2545]">{item.passengerName}</td>
                     <td className="py-2.5 text-slate-600">{item.passengerAge} yrs / {item.passengerGender}</td>
                     <td className="py-2.5">
-                      <span className="px-2 py-0.5 bg-sky-100 text-sky-800 rounded font-bold">
+                      <span className="px-2.5 py-0.5 bg-amber-100 text-amber-900 rounded font-bold border border-amber-300">
                         {item.seatNumber}
                       </span>
                     </td>
@@ -154,16 +154,16 @@ export default function TicketConfirmation() {
         {/* Ticket Footer / Payment & QR representation */}
         <div className="p-6 sm:p-8 flex flex-col sm:flex-row justify-between items-center gap-6">
           <div className="space-y-1 text-center sm:text-left text-xs">
-            <div className="text-slate-500">Payment Status: <span className="font-bold text-emerald-600">PAID ({booking.paymentMethod})</span></div>
+            <div className="text-slate-600">Payment Status: <span className="font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">PAID ({booking.paymentMethod})</span></div>
             <div className="text-slate-400 text-[11px] font-mono">TXN: {booking.transactionId}</div>
-            <div className="text-lg font-black text-slate-900">Total Paid: ₹{booking.totalAmount}</div>
+            <div className="text-xl font-bold text-[#0B2545]">Total Fare: ₹{booking.totalAmount}</div>
           </div>
 
-          <div className="flex items-center gap-3 p-3 bg-white border border-slate-200 rounded-2xl shadow-sm">
-            <QrCode className="w-12 h-12 text-slate-800" />
+          <div className="flex items-center gap-3 p-3 bg-white border border-slate-300 rounded-2xl shadow-sm">
+            <QrCode className="w-12 h-12 text-[#0B2545]" />
             <div className="text-[10px] text-slate-500 text-left">
-              <span className="font-bold text-slate-800 block">Scan at Bus Entry</span>
-              Boarding Verification
+              <span className="font-bold text-[#0B2545] block">Scan at Bus Entry</span>
+              Boarding Gate Pass
             </div>
           </div>
         </div>
@@ -173,13 +173,13 @@ export default function TicketConfirmation() {
       <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4 print:hidden">
         <button
           onClick={handlePrint}
-          className="w-full sm:w-auto px-6 py-3 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs rounded-xl shadow-md flex items-center justify-center gap-2 transition-all"
+          className="w-full sm:w-auto px-6 py-3 bg-[#0B2545] hover:bg-[#134074] text-amber-300 font-bold text-xs rounded-xl shadow-md flex items-center justify-center gap-2 transition-all border border-amber-400/30"
         >
-          <Printer className="w-4 h-4" /> Print / Save PDF Ticket
+          <Printer className="w-4 h-4 text-amber-300" /> Print / Save PDF Ticket
         </button>
         <Link
           to="/my-bookings"
-          className="w-full sm:w-auto px-6 py-3 bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs rounded-xl shadow-md flex items-center justify-center gap-2 transition-all"
+          className="w-full sm:w-auto px-6 py-3 bg-slate-800 hover:bg-slate-900 text-white font-bold text-xs rounded-xl shadow-md flex items-center justify-center gap-2 transition-all"
         >
           View All Bookings <ArrowRight className="w-4 h-4" />
         </Link>

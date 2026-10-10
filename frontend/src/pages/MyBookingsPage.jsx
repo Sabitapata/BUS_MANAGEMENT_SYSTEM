@@ -43,15 +43,15 @@ export default function MyBookingsPage() {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 min-h-screen">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 pb-4 border-b border-slate-200">
         <div>
-          <h1 className="text-2xl font-black text-slate-900 flex items-center gap-2">
-            <Ticket className="w-6 h-6 text-sky-600" /> My Bus Bookings
+          <h1 className="text-3xl font-bold text-[#0B2545] flex items-center gap-2">
+            <Ticket className="w-6 h-6 text-amber-600" /> My Bus Bookings
           </h1>
           <p className="text-xs text-slate-500 mt-1">Manage reservations, download tickets, or request cancellations</p>
         </div>
 
         <Link
           to="/"
-          className="px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs rounded-xl shadow-sm transition-all"
+          className="px-4 py-2 bg-[#0B2545] hover:bg-[#134074] text-amber-300 font-bold text-xs rounded-xl shadow-sm transition-all border border-amber-400/30"
         >
           Book New Trip
         </Link>
@@ -73,19 +73,19 @@ export default function MyBookingsPage() {
 
       {loading && (
         <div className="py-20 text-center">
-          <div className="w-8 h-8 border-4 border-sky-600 border-t-transparent rounded-full animate-spin mx-auto mb-3"></div>
-          <p className="text-xs text-slate-500">Loading your journey history...</p>
+          <div className="w-8 h-8 border-4 border-[#0B2545] border-t-transparent rounded-full animate-spin mx-auto mb-3"></div>
+          <p className="text-xs text-slate-500 font-serif">Loading your journey history...</p>
         </div>
       )}
 
       {!loading && bookings.length === 0 && (
         <div className="bg-white rounded-3xl border border-slate-200 p-12 text-center shadow-sm">
           <Ticket className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-          <h3 className="text-base font-bold text-slate-800">No Bookings Found</h3>
+          <h3 className="text-lg font-bold text-slate-800">No Bookings Found</h3>
           <p className="text-xs text-slate-500 mt-1">You haven't reserved any tickets yet.</p>
           <Link
             to="/"
-            className="inline-block mt-4 px-5 py-2.5 bg-sky-600 text-white font-bold text-xs rounded-xl shadow-md hover:bg-sky-700 transition-all"
+            className="inline-block mt-4 px-5 py-2.5 bg-[#0B2545] text-amber-300 font-bold text-xs rounded-xl shadow-md hover:bg-[#134074] transition-all border border-amber-400/30"
           >
             Find a Bus Now
           </Link>
@@ -107,7 +107,7 @@ export default function MyBookingsPage() {
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-4 border-b border-slate-100">
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="font-mono font-black text-sm text-sky-800 bg-sky-50 px-2.5 py-0.5 rounded border border-sky-200">
+                    <span className="font-mono font-bold text-sm text-amber-900 bg-amber-100 px-2.5 py-0.5 rounded border border-amber-300">
                       {b.pnrNumber}
                     </span>
                     <span
@@ -118,8 +118,10 @@ export default function MyBookingsPage() {
                       {b.bookingStatus}
                     </span>
                   </div>
-                  <h3 className="text-base font-bold text-slate-900 mt-2">
-                    {b.sourceCity} ➔ {b.destinationCity}
+                  <h3 className="text-lg font-bold text-[#0B2545] mt-2 flex items-center gap-1.5">
+                    <span>{b.sourceCity}</span>
+                    <span className="text-amber-600 font-normal">➔</span>
+                    <span>{b.destinationCity}</span>
                   </h3>
                   <p className="text-xs text-slate-500">
                     {b.operatorName} • {b.busNumber} ({b.busType.replace('_', ' ')})
@@ -127,7 +129,7 @@ export default function MyBookingsPage() {
                 </div>
 
                 <div className="text-left md:text-right">
-                  <div className="text-lg font-black text-slate-900">₹{b.totalAmount}</div>
+                  <div className="text-xl font-bold text-[#0B2545]">₹{b.totalAmount}</div>
                   <p className="text-[11px] text-slate-400">
                     Booked on: {new Date(b.bookingTime).toLocaleDateString('en-IN', { month: 'short', day: 'numeric', year: 'numeric' })}
                   </p>
@@ -138,7 +140,7 @@ export default function MyBookingsPage() {
                 <div className="space-y-1">
                   <div>
                     <span className="text-slate-400">Departure: </span>
-                    <span className="font-semibold text-slate-800">
+                    <span className="font-bold text-[#0B2545]">
                       {new Date(b.departureTime).toLocaleString('en-IN', {
                         month: 'short',
                         day: 'numeric',
@@ -149,10 +151,10 @@ export default function MyBookingsPage() {
                   </div>
                   <div>
                     <span className="text-slate-400">Seats ({b.items.length}): </span>
-                    <span className="font-bold text-sky-700">{seats}</span>
+                    <span className="font-bold text-amber-800">{seats}</span>
                   </div>
                   {isCancelled && b.refundAmount !== null && (
-                    <div className="text-emerald-700 font-semibold text-[11px]">
+                    <div className="text-emerald-700 font-bold text-[11px]">
                       Refund Amount: ₹{b.refundAmount}
                     </div>
                   )}
@@ -161,7 +163,7 @@ export default function MyBookingsPage() {
                 <div className="flex items-center gap-2 w-full sm:w-auto">
                   <Link
                     to={`/ticket-confirmation/${b.pnrNumber}`}
-                    className="flex-1 sm:flex-none text-center px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs transition-colors"
+                    className="flex-1 sm:flex-none text-center px-4 py-2 rounded-xl bg-[#0B2545] hover:bg-[#134074] text-amber-300 font-bold text-xs transition-colors border border-amber-400/30"
                   >
                     View E-Ticket
                   </Link>

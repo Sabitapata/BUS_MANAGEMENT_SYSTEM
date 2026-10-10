@@ -133,10 +133,10 @@ export default function AdminDashboard() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 min-h-screen">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 pb-4 border-b border-slate-200">
         <div>
-          <span className="text-[10px] font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded border border-amber-300">
             Control Center
           </span>
-          <h1 className="text-2xl font-black text-slate-900 mt-1">Fleet & Operations Admin</h1>
+          <h1 className="text-3xl font-bold text-[#0B2545] mt-1">Fleet Operations & Admin Console</h1>
         </div>
 
         {/* Tab Switcher */}
@@ -155,7 +155,7 @@ export default function AdminDashboard() {
                 setStatusMsg({ type: '', text: '' });
               }}
               className={`px-3 py-2 rounded-xl transition-all ${
-                activeTab === tab.id ? 'bg-white text-slate-900 shadow-sm' : 'hover:text-slate-900'
+                activeTab === tab.id ? 'bg-[#0B2545] text-amber-300 shadow-sm' : 'hover:text-[#0B2545]'
               }`}
             >
               {tab.label}
@@ -309,7 +309,7 @@ export default function AdminDashboard() {
             </div>
             <button
               type="submit"
-              className="w-full py-3 bg-sky-600 text-white font-bold text-xs rounded-xl shadow-md hover:bg-sky-700 transition-all"
+              className="w-full py-3 bg-[#0B2545] hover:bg-[#134074] text-amber-300 font-bold text-xs rounded-xl shadow-md border border-amber-400/30 transition-all"
             >
               Add Bus & Generate Layout
             </button>
@@ -370,7 +370,7 @@ export default function AdminDashboard() {
             </div>
             <button
               type="submit"
-              className="w-full py-3 bg-indigo-600 text-white font-bold text-xs rounded-xl shadow-md hover:bg-indigo-700 transition-all"
+              className="w-full py-3 bg-[#0B2545] hover:bg-[#134074] text-amber-300 font-bold text-xs rounded-xl shadow-md border border-amber-400/30 transition-all"
             >
               Save Route Corridor
             </button>
@@ -458,7 +458,7 @@ export default function AdminDashboard() {
 
             <button
               type="submit"
-              className="w-full py-3 bg-sky-600 text-white font-bold text-xs rounded-xl shadow-md hover:bg-sky-700 transition-all"
+              className="w-full py-3 bg-[#0B2545] hover:bg-[#134074] text-amber-300 font-bold text-xs rounded-xl shadow-md border border-amber-400/30 transition-all"
             >
               Schedule Trip
             </button>
@@ -514,15 +514,15 @@ export default function AdminDashboard() {
                       manifestBookings.flatMap((b) =>
                         b.items.map((i) => (
                           <tr key={i.id}>
-                            <td className="py-3 font-mono font-bold text-sky-700">{b.pnrNumber}</td>
-                            <td className="py-3 font-semibold text-slate-900">{i.passengerName}</td>
+                            <td className="py-3 font-mono font-bold text-amber-900">{b.pnrNumber}</td>
+                            <td className="py-3 font-semibold text-[#0B2545]">{i.passengerName}</td>
                             <td className="py-3 text-slate-500">{i.passengerAge} / {i.passengerGender}</td>
                             <td className="py-3">
-                              <span className="px-2 py-0.5 bg-sky-100 text-sky-800 font-bold rounded">
+                              <span className="px-2.5 py-0.5 bg-amber-100 text-amber-900 font-bold rounded border border-amber-300">
                                 {i.seat.seatNumber}
                               </span>
                             </td>
-                            <td className="py-3 text-emerald-600 font-semibold">{b.bookingStatus}</td>
+                            <td className="py-3 text-emerald-700 font-bold">{b.bookingStatus}</td>
                           </tr>
                         ))
                       )

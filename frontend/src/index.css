@@ -2,16 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #f8fafc;
-  color: #0f172a;
+@layer base {
+  html, body {
+    margin: 0;
+    font-family: 'Times New Roman', Times, 'Liberation Serif', Georgia, serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f8f9fb;
+    color: #0b2545;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Times New Roman', Times, 'Liberation Serif', Georgia, serif;
+    letter-spacing: -0.01em;
+  }
 }
 
-/* Custom scrollbars */
+/* Custom transit themed scrollbars */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -26,3 +33,4 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
+

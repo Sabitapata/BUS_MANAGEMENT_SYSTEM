@@ -47,31 +47,31 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-12 bg-slate-50">
-      <div className="max-w-md w-full bg-white rounded-3xl border border-slate-200 shadow-xl p-8 space-y-6">
+    <div className="min-h-screen flex items-center justify-center px-4 py-12 bg-[#F8F9FB]">
+      <div className="max-w-md w-full bg-white rounded-3xl border-2 border-slate-200/90 shadow-xl p-8 space-y-6">
         <div className="text-center">
-          <div className="w-12 h-12 bg-sky-600 rounded-2xl flex items-center justify-center text-white mx-auto shadow-md shadow-sky-600/30 mb-3">
-            <Bus className="w-6 h-6" />
+          <div className="w-14 h-14 bg-gradient-to-tr from-[#0B2545] to-[#1E4D7A] rounded-2xl flex items-center justify-center text-amber-400 mx-auto shadow-md shadow-navy-900/30 border border-amber-400/30 mb-3">
+            <Bus className="w-7 h-7" />
           </div>
-          <h2 className="text-2xl font-black text-slate-900">Welcome Back</h2>
-          <p className="text-xs text-slate-500 mt-1">Sign in to your TravelSwift passenger or admin account</p>
+          <h2 className="text-2xl font-bold text-[#0B2545]">Welcome Back</h2>
+          <p className="text-xs text-slate-500 mt-1">Sign in to your TravelSwift passenger or fleet account</p>
         </div>
 
         {/* Demo Fast-Login Pills */}
         <div className="p-3 bg-slate-50 rounded-2xl border border-slate-200 text-xs space-y-2">
-          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">One-Click Demo Credentials:</span>
+          <span className="text-[10px] font-bold text-[#0B2545] uppercase tracking-wider block">One-Click Demo Credentials:</span>
           <div className="flex gap-2">
             <button
               type="button"
               onClick={() => fillDemo('user')}
-              className="flex-1 py-1.5 px-2 bg-white hover:bg-sky-50 border border-slate-200 hover:border-sky-300 rounded-lg text-slate-700 font-bold text-[11px] transition-colors"
+              className="flex-1 py-1.5 px-2 bg-white hover:bg-navy-50 border border-slate-300 hover:border-navy-400 rounded-lg text-[#0B2545] font-bold text-[11px] transition-colors shadow-sm"
             >
               Passenger Login
             </button>
             <button
               type="button"
               onClick={() => fillDemo('admin')}
-              className="flex-1 py-1.5 px-2 bg-amber-50 hover:bg-amber-100 border border-amber-200 rounded-lg text-amber-800 font-bold text-[11px] transition-colors"
+              className="flex-1 py-1.5 px-2 bg-amber-50 hover:bg-amber-100 border border-amber-300 rounded-lg text-amber-800 font-bold text-[11px] transition-colors shadow-sm"
             >
               Admin Login
             </button>
@@ -87,7 +87,7 @@ export default function LoginPage() {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-xs font-bold text-slate-600 uppercase mb-1">Email Address</label>
+            <label className="block text-xs font-bold text-[#0B2545] uppercase mb-1">Email Address</label>
             <div className="relative">
               <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
               <input
@@ -96,13 +96,13 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
-                className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium focus:outline-none focus:ring-2 focus:ring-sky-500"
+                className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold text-[#0B2545] focus:outline-none focus:ring-2 focus:ring-[#0B2545]"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-600 uppercase mb-1">Password</label>
+            <label className="block text-xs font-bold text-[#0B2545] uppercase mb-1">Password</label>
             <div className="relative">
               <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
               <input
@@ -111,7 +111,7 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium focus:outline-none focus:ring-2 focus:ring-sky-500"
+                className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold text-[#0B2545] focus:outline-none focus:ring-2 focus:ring-[#0B2545]"
               />
             </div>
           </div>
@@ -119,15 +119,15 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 bg-sky-600 hover:bg-sky-700 disabled:opacity-50 text-white font-bold rounded-xl shadow-md text-xs transition-all flex items-center justify-center gap-2"
+            className="w-full py-3.5 bg-[#0B2545] hover:bg-[#134074] disabled:opacity-50 text-amber-300 font-bold rounded-xl shadow-md text-xs transition-all flex items-center justify-center gap-2 border border-amber-400/30"
           >
-            {loading ? 'Authenticating...' : 'Sign In'} <ArrowRight className="w-4 h-4" />
+            {loading ? 'Authenticating...' : 'Sign In'} <ArrowRight className="w-4 h-4 text-amber-300" />
           </button>
         </form>
 
         <p className="text-center text-xs text-slate-500">
           Don't have an account?{' '}
-          <Link to="/register" className="font-bold text-sky-600 hover:underline">
+          <Link to="/register" className="font-bold text-amber-800 hover:text-amber-900 hover:underline">
             Register here
           </Link>
         </p>

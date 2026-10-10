@@ -34,3 +34,149 @@
   background: #94a3b8;
 }
 
+/* ========================================================
+   TRANSIT HIGHWAY & BUS MOTION ANIMATIONS
+   ======================================================== */
+@keyframes roadMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -120px 0;
+  }
+}
+
+@keyframes busDrive {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(-2px);
+  }
+  50% {
+    transform: translateY(1px);
+  }
+  75% {
+    transform: translateY(-1.5px);
+  }
+}
+
+@keyframes wheelSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes headlightPulse {
+  0%, 100% {
+    opacity: 0.7;
+    filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.6));
+  }
+  50% {
+    opacity: 0.95;
+    filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.9));
+  }
+}
+
+@keyframes exhaustSmoke {
+  0% {
+    transform: scale(0.6) translate(0, 0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.4) translate(-25px, -8px);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(2.2) translate(-50px, -16px);
+    opacity: 0;
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes citySkylineMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-road-lanes {
+  background-image: repeating-linear-gradient(
+    90deg,
+    #f59e0b 0px,
+    #f59e0b 40px,
+    transparent 40px,
+    transparent 80px
+  );
+  background-size: 80px 4px;
+  background-repeat: repeat-x;
+  animation: roadMove 0.8s linear infinite;
+}
+
+.animate-road-curb {
+  background-image: repeating-linear-gradient(
+    90deg,
+    #ef4444 0px,
+    #ef4444 20px,
+    #ffffff 20px,
+    #ffffff 40px
+  );
+  background-size: 40px 4px;
+  background-repeat: repeat-x;
+  animation: roadMove 0.8s linear infinite;
+}
+
+.animate-bus-chassis {
+  animation: busDrive 1.6s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+.animate-bus-wheel {
+  animation: wheelSpin 0.65s linear infinite;
+  transform-origin: center center;
+}
+
+.animate-headlight-beam {
+  animation: headlightPulse 2.5s ease-in-out infinite;
+}
+
+.animate-exhaust-1 {
+  animation: exhaustSmoke 1.8s ease-out infinite;
+}
+
+.animate-exhaust-2 {
+  animation: exhaustSmoke 1.8s ease-out infinite 0.9s;
+}
+
+.animate-float-slow {
+  animation: floatGentle 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-road-lanes,
+  .animate-road-curb,
+  .animate-bus-chassis,
+  .animate-bus-wheel,
+  .animate-headlight-beam,
+  .animate-exhaust-1,
+  .animate-exhaust-2,
+  .animate-float-slow {
+    animation: none !important;
+  }
+}
+
+

@@ -24,4 +24,6 @@ lerna-debug.log*
 
 # Documents
 *.docx
+*.pdf
+
 
